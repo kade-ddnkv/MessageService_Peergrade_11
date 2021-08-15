@@ -1,0 +1,191 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MessageService_Peergrade_11</name>
+    </assembly>
+    <members>
+        <member name="T:MessageService_Peergrade_11.Controllers.DataController">
+            <summary>
+            Контроллер, отвечающий за сохранение/загрузку данных.
+            </summary>
+        </member>
+        <member name="M:MessageService_Peergrade_11.Controllers.DataController.LoadData(System.String)">
+            <summary>
+            Загрузить данные из файла.
+            </summary>
+            <param name="fileName">Имя json-файла.</param>
+            <returns></returns>
+        </member>
+        <member name="M:MessageService_Peergrade_11.Controllers.DataController.SaveData(System.String)">
+            <summary>
+            Сохранить данные в файл.
+            </summary>
+            <param name="fileName">Имя json-файла.</param>
+            <returns></returns>
+        </member>
+        <member name="M:MessageService_Peergrade_11.Controllers.DataController.FileNameIsValid(System.String,System.Boolean)">
+            <summary>
+            Определяет корректность имени файла. 
+            </summary>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.IO.IOException"></exception>
+            <exception cref="T:System.Exception"></exception>
+            <param name="fileName"></param>
+            <param name="alreadyExists"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MessageService_Peergrade_11.Controllers.MessageController">
+            <summary>
+            Контроллер, отвечающий за работу с сообщениями (создание, просмотр).
+            </summary>
+        </member>
+        <member name="M:MessageService_Peergrade_11.Controllers.MessageController.CreateMessage(MessageService_Peergrade_11.Models.CreateMessageRequest)">
+            <summary>
+            Создать новое сообщение.
+            </summary>
+            <param name="req">Модель сообщения</param>
+            <returns></returns>
+        </member>
+        <member name="M:MessageService_Peergrade_11.Controllers.MessageController.CreateRandomMessages(System.Int32)">
+            <summary>
+            Создать случайные сообщения (предыдущие удаляются).
+            </summary>
+            <param name="count">Кол-во сообщений</param>
+            <returns></returns>
+        </member>
+        <member name="M:MessageService_Peergrade_11.Controllers.MessageController.LoadSubjectsDictionary">
+            <summary>
+            Возвращает список тем из файла pathToSubjectsDictionary.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MessageService_Peergrade_11.Controllers.MessageController.GetMessagesBySenderEmail(System.String)">
+            <summary>
+            Получить сообщения по почте отправителя.
+            </summary>
+            <param name="senderEmail"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MessageService_Peergrade_11.Controllers.MessageController.GetMessagesByReceiverEmail(System.String)">
+            <summary>
+            Получить сообщения по почте получателя.
+            </summary>
+            <param name="receiverEmail"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MessageService_Peergrade_11.Controllers.MessageController.GetMessagesBySenderAndReceiverEmails(System.String,System.String)">
+            <summary>
+            Получить сообщения по почтам отправителя и получателя.
+            </summary>
+            <param name="senderEmail"></param>
+            <param name="receiverEmail"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MessageService_Peergrade_11.Controllers.UserController">
+            <summary>
+            Контроллер, отвечающий за работу с пользователями (создание, просмотр).
+            </summary>
+        </member>
+        <member name="M:MessageService_Peergrade_11.Controllers.UserController.CreateUser(MessageService_Peergrade_11.Models.CreateUserRequest)">
+            <summary>
+            Создать пользователя.
+            </summary>
+            <param name="req">Модель пользователя</param>
+            <returns></returns>
+        </member>
+        <member name="M:MessageService_Peergrade_11.Controllers.UserController.CreateRandomUsers(System.Int32)">
+            <summary>
+            Создать случайных пользователей (предыдущие удаляются).
+            </summary>
+            <param name="count">Кол-во пользователей</param>
+            <returns></returns>
+        </member>
+        <member name="M:MessageService_Peergrade_11.Controllers.UserController.LoadNamesDictionary">
+            <summary>
+            Загрузить из файла pathToNamesDictionary список имен.
+            </summary>
+            <exception cref="T:System.IO.IOException"></exception>
+            <returns></returns>
+        </member>
+        <member name="M:MessageService_Peergrade_11.Controllers.UserController.GetUserByEmail(System.String)">
+            <summary>
+            Найти пользователя по почте.
+            </summary>
+            <param name="email"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MessageService_Peergrade_11.Controllers.UserController.GetAllUsers">
+            <summary>
+            Получить список всех пользователей.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MessageService_Peergrade_11.Controllers.UserController.GetAllUsers(System.Int32,System.Int32)">
+            <summary>
+            Получить список всех пользователей для постраничной выборки.
+            </summary>
+            <param name="limit"></param>
+            <param name="offset"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MessageService_Peergrade_11.Controllers.UserController.GetUserIdByEmail(System.String)">
+            <summary>
+            Получить id пользователя по его почте. Вернет null, если подходящего пользователя нет.
+            </summary>
+            <param name="email"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MessageService_Peergrade_11.Controllers.UserController.SortUsersByEmail">
+            <summary>
+            Сортировать пользователей по почте лексикографически.
+            </summary>
+        </member>
+        <member name="T:MessageService_Peergrade_11.Data">
+            <summary>
+            Класс общих данных, хранящий список пользователей и сообщений.
+            </summary>
+        </member>
+        <member name="M:MessageService_Peergrade_11.Data.GetSerializableData">
+            <summary>
+            Возвращает экземпляр DataSerializable для сериализации.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MessageService_Peergrade_11.Data.LoadFromSerializableData(MessageService_Peergrade_11.DataSerializable)">
+            <summary>
+            Загружает в статический класс Data пользователей и сообщения из переданного класса.
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="M:MessageService_Peergrade_11.Data.CheckDataCorrectness">
+            <summary>
+            Проверяет корректность текущих данных. Может выбросить InvalidOperationException.
+            </summary>
+        </member>
+        <member name="T:MessageService_Peergrade_11.DataSerializable">
+            <summary>
+            Класс-болванка для сериализации статического класса Data.
+            </summary>
+        </member>
+        <member name="T:MessageService_Peergrade_11.Models.CreateMessageRequest">
+            <summary>
+            Модель для создания сообщения.
+            </summary>
+        </member>
+        <member name="T:MessageService_Peergrade_11.Models.CreateUserRequest">
+            <summary>
+            Модель для создания пользователя.
+            </summary>
+        </member>
+        <member name="T:MessageService_Peergrade_11.Models.MessageInfo">
+            <summary>
+            Класс - сообщение.
+            </summary>
+        </member>
+        <member name="T:MessageService_Peergrade_11.Models.UserInfo">
+            <summary>
+            Класс - пользователь.
+            </summary>
+        </member>
+    </members>
+</doc>
